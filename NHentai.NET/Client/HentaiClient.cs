@@ -59,7 +59,8 @@ namespace NHentai.NET.Client
             var url = $"{ApiRoot}{BookSearchRoot}{query.ToSearchableString()}";
             return await DownloadData<SearchResult>(url);
         }
-
+        
+        /// <inheritdoc />
         public async Task<SearchResult> SearchTag(string tag)
         {
             var url = $"{ApiRoot}{TagSearchRoot}{tag}";
