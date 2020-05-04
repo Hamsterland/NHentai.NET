@@ -21,11 +21,8 @@ namespace NHentai.NET.Models.Searches
         public int PagesCount { get; set; }
         
         /// <summary>
-        /// The number of pages per count of the query.
+        /// The number of <see cref="Book"/> shows per page.
         /// </summary>
-        /// <remarks>
-        /// No, I don't know what this means either.
-        /// </remarks>
         [JsonPropertyName("per_page")] 
         public int PerPageCount { get; set; }
     }
