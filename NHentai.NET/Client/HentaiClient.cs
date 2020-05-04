@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using NHentai.NET.Models;
 using System.Text.Json;
+using NHentai.NET.Helpers;
 using NHentai.NET.Models.Searches;
 
 namespace NHentai.NET.Client
@@ -32,11 +34,16 @@ namespace NHentai.NET.Client
         /// </summary>
         public const string BookSearchRoot = "/api/galleries/search?query=";
 
+        /// <summary>
+        /// The root url for making tag <see cref="SearchResult"/> requests.
+        /// </summary>
+        public const string TagSearchRoot = "/api/galleries/tagged?tag_id=";
+
         /// <inheritdoc />
         public async Task<T> DownloadData<T>(string url)
         {
             var json = await _client.GetStringAsync(url);
-            return JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = false});
+            return JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
         }
         
         /// <inheritdoc />
@@ -47,12 +54,18 @@ namespace NHentai.NET.Client
         }
         
         /// <inheritdoc />
-        public async Task<SearchResult> SearchQuery(string query)
+        public async Task<SearchResult> SearchQuery(params string[] query)
         {
-            var url = $"{ApiRoot}{BookSearchRoot}\"{query}\"";
+            var url = $"{ApiRoot}{BookSearchRoot}{query.ToSearchableString()}";
             return await DownloadData<SearchResult>(url);
         }
 
+        public async Task<SearchResult> SearchTag(string tag)
+        {
+            var url = $"{ApiRoot}{TagSearchRoot}{tag}";
+            return await DownloadData<SearchResult>(url);
+        }
+ 
         /// <inheritdoc cref="IHentaiClient" />
         public void Dispose()
         {

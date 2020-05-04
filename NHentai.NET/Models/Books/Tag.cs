@@ -8,9 +8,9 @@ namespace NHentai.NET.Models
     public class Tag
     {
         /// <summary>
-        /// The Id of the tag.
+        /// The JsonId of the tag.
         /// </summary>
-        [JsonPropertyName("Id")]
+        [JsonPropertyName("JsonId")]
         public int Id { get; set; }
         
         /// <summary>

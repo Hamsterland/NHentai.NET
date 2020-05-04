@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace NHentai.NET.Models
@@ -9,16 +10,16 @@ namespace NHentai.NET.Models
     public class Book
     {
         /// <summary>
-        /// The Id of book.
+        /// The Json Id of book.
         /// </summary>
         /// <remarks>
-        /// This property should be an <see cref="object"/> by default and parsed as an integer later.
+        /// This property should be an <see cref="JsonElement"/> by default and parsed as an integer later.
         /// </remarks>
         [JsonPropertyName("id")]
-        public object Id { get; set; }
-        
+        public JsonElement JsonId { get; set; }
+
         /// <summary>
-        /// The media Id of the book.
+        /// The media JsonId of the book.
         /// </summary>
         [JsonPropertyName("media_id")]
         public string MediaId { get; set; }

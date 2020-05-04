@@ -1,5 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using NHentai.NET.Helpers;
 using NUnit.Framework;
 
 namespace NHentai.Net.Test
@@ -10,8 +14,8 @@ namespace NHentai.Net.Test
         public async Task TestBookResult()
         {
             var result = await HentaiClient.SearchBook(177013);
-            
-            Assert.AreEqual(177013, result.Id);
+
+            Assert.AreEqual(177013, result.JsonId.GetInt32());
             Assert.AreEqual("987560", result.MediaId);
             Assert.AreEqual("[ShindoLA] METAMORPHOSIS (Complete) [English]", result.Title.English);
             Assert.AreEqual("METAMORPHOSIS", result.Title.Pretty);
@@ -23,11 +27,12 @@ namespace NHentai.Net.Test
         [Test]
         public async Task TestBooksResult()
         {
-            var result = await HentaiClient.SearchQuery("sole male");
+            var result = await HentaiClient.SearchQuery("yuri", "females only");
 
             foreach (var book in result.Books)
             {
-                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("sole male") as bool?);
+                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("yuri"));
+                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("females only"));
             }
         }
     }

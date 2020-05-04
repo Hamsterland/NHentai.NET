@@ -22,9 +22,9 @@ namespace NHentai.NET.Client
         Task<T> DownloadData<T>(string url);
 
         /// <summary>
-        /// Attempts to find and a parse a <see cref="Book"/> by its Id.
+        /// Attempts to find and a parse a <see cref="Book"/> by its JsonId.
         /// </summary>
-        /// <param name="id">/// The Id of the <see cref="Book"/> to search for.</param>
+        /// <param name="id">/// The JsonId of the <see cref="Book"/> to search for.</param>
         /// <returns>
         /// A <see cref="Book"/>.
         /// </returns>
@@ -37,7 +37,9 @@ namespace NHentai.NET.Client
         /// <returns>
         /// An <see cref="IEnumerable{T}"/> of <see cref="Book"/> that match the search query.
         /// </returns>
-        Task<SearchResult> SearchQuery(string query);
+        Task<SearchResult> SearchQuery(params string[] query);
+
+        Task<SearchResult> SearchTag(string tag);
         
         /// <summary>
         /// Disposes of the <see cref="IHentaiClient"/> instance.
