@@ -61,9 +61,9 @@ namespace NHentai.NET.Client
         }
         
         /// <inheritdoc />
-        public async Task<SearchResult> SearchTag(string tag)
+        public async Task<SearchResult> SearchTag(int id)
         {
-            var url = $"{ApiRoot}{TagSearchRoot}{tag}";
+            var url = $"{ApiRoot}{TagSearchRoot}{id}";
             return await DownloadData<SearchResult>(url);
         }
  
