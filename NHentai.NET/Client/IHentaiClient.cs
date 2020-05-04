@@ -38,9 +38,9 @@ namespace NHentai.NET.Client
         /// An <see cref="IEnumerable{T}"/> of <see cref="Book"/> that match the search query.
         /// </returns>
         Task<SearchResult> SearchQuery(string query);
-
+        
         /// <summary>
-        /// Disposes of the <see cref="HentaiClient"/> instance.
+        /// Disposes of the <see cref="IHentaiClient"/> instance.
         /// </summary>
         public void Dispose();
     }

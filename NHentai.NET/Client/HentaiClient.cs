@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Net.Http;
 using System.Threading.Tasks;
 using NHentai.NET.Models;
@@ -54,7 +52,8 @@ namespace NHentai.NET.Client
             var url = $"{ApiRoot}{BookSearchRoot}\"{query}\"";
             return await DownloadData<SearchResult>(url);
         }
-        
+
+        /// <inheritdoc cref="IHentaiClient" />
         public void Dispose()
         {
             _client?.Dispose();
