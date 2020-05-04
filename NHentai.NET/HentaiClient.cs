@@ -36,14 +36,10 @@ namespace NHentai.NET
         /// <summary>
         /// Downloads and deserializes data into their respect <see cref="T"/> objects. 
         /// </summary>
-        /// <param name="url">
-        /// The url to make the GET request.
-        /// </param>
-        /// <typeparam name="T">
-        /// The type model the JSON should be deserialized into.
-        /// </typeparam>
+        /// <param name="url">The url to make the GET request to.</param>
+        /// <typeparam name="T">/// The type model the Json should be deserialized into./// </typeparam>
         /// <returns>
-        /// A generic type <see cref="T"/> that contains deserialized JSON data.
+        /// A generic type <see cref="T"/> that contains deserialized Json data.
         /// </returns>
         public async Task<T> DownloadData<T>(string url)
         {
@@ -54,9 +50,7 @@ namespace NHentai.NET
         /// <summary>
         /// Attempts to find and a parse a <see cref="Book"/> by its Id.
         /// </summary>
-        /// <param name="id">
-        /// The Id of the <see cref="Book"/> to search for.
-        /// </param>
+        /// <param name="id">/// The Id of the <see cref="Book"/> to search for.</param>
         /// <returns>
         /// A <see cref="Book"/>.
         /// </returns>
@@ -69,9 +63,7 @@ namespace NHentai.NET
         /// <summary>
         /// Searches for <see cref="Book"/> by the given query.
         /// </summary>
-        /// <param name="query">
-        /// The search query.
-        /// </param>
+        /// <param name="query">/// The search query.</param>
         /// <returns>
         /// An <see cref="IEnumerable{T}"/> of <see cref="Book"/> that match the search query.
         /// </returns>
