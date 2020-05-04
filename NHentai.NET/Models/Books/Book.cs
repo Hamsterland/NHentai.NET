@@ -12,10 +12,7 @@ namespace NHentai.NET.Models
         /// The Id of book.
         /// </summary>
         /// <remarks>
-        /// This property is an <see cref="object"/> because this API wrapper uses <see cref="System.Text.Json"/> instead
-        /// of Newtonsoft. The in-built system does not support deserializing numbers in quotations marks as integers.
-        /// Therefore, since NHentai's API frequently has book Id's as strings, it is more efficient to use a general type
-        /// and parse the Id as an integer later is more efficient.
+        /// This property should be an <see cref="object"/> by default and parsed as an integer later.
         /// </remarks>
         [JsonPropertyName("id")]
         public object Id { get; set; }
