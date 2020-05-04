@@ -25,6 +25,13 @@ namespace NHentai.Net.Test
         }
 
         [Test]
+        public async Task TestRelatedResult()
+        {
+            var result = await HentaiClient.SearchRelated(177013);
+            Assert.IsTrue(result.Books.First().JsonId.GetString() == "83932");
+        }
+
+        [Test]
         public async Task TestBooksResult()
         {
             var result = await HentaiClient.SearchQuery("yuri", "females only");
@@ -33,6 +40,17 @@ namespace NHentai.Net.Test
             {
                 Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("yuri"));
                 Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("females only"));
+            }
+        }
+
+        [Test]
+        public async Task TestTagResult()
+        {
+            var result = await HentaiClient.SearchTag(31247);
+
+            foreach (var book in result.Books)
+            {
+                Assert.IsTrue(book.Tags.Select(x => x.Id).Contains(31247));
             }
         }
     }

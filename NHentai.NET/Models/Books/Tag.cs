@@ -10,7 +10,7 @@ namespace NHentai.NET.Models
         /// <summary>
         /// The JsonId of the tag.
         /// </summary>
-        [JsonPropertyName("JsonId")]
+        [JsonPropertyName("id")]
         public int Id { get; set; }
         
         /// <summary>
