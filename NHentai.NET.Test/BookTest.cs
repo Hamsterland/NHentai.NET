@@ -27,7 +27,7 @@ namespace NHentai.Net.Test
 
             foreach (var book in result.Books)
             {
-                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("sole male"));
+                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("sole male") as bool?);
             }
         }
     }

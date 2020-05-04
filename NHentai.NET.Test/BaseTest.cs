@@ -1,11 +1,11 @@
-using NHentai.NET;
+using NHentai.NET.Client;
 using NUnit.Framework;
 
 namespace NHentai.Net.Test
 {
     public class BaseTest
     {
-        protected HentaiClient HentaiClient { get; set; }
+        protected IHentaiClient HentaiClient { get; set; }
 
         [SetUp]
         public void Setup()
