@@ -14,6 +14,8 @@ namespace NHentai.NET.Client
         Task<string> GetBookPage(int id, int page);
         string GetBookPage(string mediaId, int page);
         IEnumerable<string> GetAllBookPages(Book book);
+        string GetBookCover(Book book);
+        string GetBookCover(string mediaId);
         Task<IEnumerable<string>> GetAllBookPages(int id);
         Task<SearchResult> SearchRelated(int id);
         Task<SearchResult> SearchQuery(params string[] query);

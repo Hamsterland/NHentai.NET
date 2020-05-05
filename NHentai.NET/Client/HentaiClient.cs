@@ -16,6 +16,8 @@ namespace NHentai.NET.Client
         private const string ApiRoot = "https://nhentai.net";
 
         private const string ImageApiRoot = "https://i.nhentai.net";
+
+        private const string CoverApiRoot = "https://t.nhentai.net/galleries/{0}/cover.jpg";
         
         private const string BookRoot = "/api/gallery/";
         
@@ -83,6 +85,16 @@ namespace NHentai.NET.Client
             }
 
             return pages;
+        }
+
+        public string GetBookCover(Book book)
+        {
+            return string.Format(CoverApiRoot, book.MediaId);
+        }
+
+        public string GetBookCover(string mediaId)
+        {
+            return string.Format(CoverApiRoot, mediaId);
         }
 
         public async Task<SearchResult> SearchRelated(int id)
