@@ -4,11 +4,29 @@
 # Introduction
 NHentai.NET is an nhentai API Wrapper written in C#. This project uses the in-built Json serializer System.Text.Json instead of Newtonsoft.Json. Therefore, it only targets .NET Core 3.0 projects and above. 
 
-## Example
+## Examples
 ```cs
 // Create a new instance of IHentaiClient.
 var client = new IHentaiClient();
 
 // Search for a book by its Id.
-var book = client.SearchBook(177013);
+Book book = client.SearchBook(177013);
+
+// Get the book Id. 
+int id = book.JsonId.GetInt32();
+
+// Get the book English title.
+string title = book.Title.English;
+
+// Get all the book image Urls.
+List<string> images = client.GetAllBookPages(id);
+```
+
+## Dependency Injection
+```cs
+private void ConfigureServices(IServiceCollection services)
+{
+    // Call this method on your collection.
+    services.AddHentaiClient();
+}
 ```
