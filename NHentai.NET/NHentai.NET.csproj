@@ -8,6 +8,7 @@
         <RepositoryUrl>https://github.com/Hamsterland/NHentai.NET/tree/master</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageLicenseUrl>https://github.com/Hamsterland/NHentai.NET/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageVersion>1.0.1</PackageVersion>
     </PropertyGroup>
 
 </Project>

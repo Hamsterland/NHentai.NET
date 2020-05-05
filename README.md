@@ -1,5 +1,5 @@
 # Introduction
-NHentai.NET is an nhentai API Wrapper written in C#. This project uses the in-built Json serializer System.Text.Json instead of Newtonsoft.Json. Therefore, it only targets projects .NET Core 3.0 and above. 
+NHentai.NET is an nhentai API Wrapper written in C#. This project uses the in-built Json serializer System.Text.Json instead of Newtonsoft.Json. Therefore, it only targets .NET Core 3.0 projects and above. 
 
 ## Example
 ```cs
