@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using NHentai.NET.Models;
 using NHentai.NET.Models.Searches;
 
 namespace NHentai.NET.Client
 {
-    public interface IHentaiClient
+    public interface IHentaiClient : IDisposable
     {
         Task<T> DownloadData<T>(string url);
         Task<Book> SearchBook(int id);
@@ -17,6 +18,5 @@ namespace NHentai.NET.Client
         Task<SearchResult> SearchRelated(int id);
         Task<SearchResult> SearchQuery(params string[] query);
         Task<SearchResult> SearchTag(int id);
-        void Dispose();
     }
 }

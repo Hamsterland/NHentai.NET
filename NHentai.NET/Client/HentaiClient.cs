@@ -9,7 +9,7 @@ using NHentai.NET.Models.Searches;
 
 namespace NHentai.NET.Client
 {
-    public class HentaiClient : IHentaiClient, IDisposable
+    public class HentaiClient : IHentaiClient
     {
         private readonly HttpClient _client = new HttpClient();
         
