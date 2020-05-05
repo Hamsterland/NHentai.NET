@@ -71,7 +71,7 @@ namespace NHentai.Net.Test
             var book = await HentaiClient.SearchBook(177013);
             var result = HentaiClient.GetAllBookPages(book);
             
-            // Looking for a proper way to test this.
+            // Looking for a proper way to test this. Need to extract a list of page URLs. 
             Assert.IsTrue(true);
         }
 
