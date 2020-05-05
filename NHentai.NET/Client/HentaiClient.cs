@@ -13,19 +13,19 @@ namespace NHentai.NET.Client
     {
         private readonly HttpClient _client = new HttpClient();
         
-        public const string ApiRoot = "https://nhentai.net";
+        private const string ApiRoot = "https://nhentai.net";
 
-        public const string ImageApiRoot = "https://i.nhentai.net";
+        private const string ImageApiRoot = "https://i.nhentai.net";
         
-        public const string BookRoot = "/api/gallery/";
+        private const string BookRoot = "/api/gallery/";
         
-        public const string RelatedSearchRoot = "/api/gallery/{0}/related";
+        private const string RelatedSearchRoot = "/api/gallery/{0}/related";
         
-        public const string BookSearchRoot = "/api/galleries/search?query=";
+        private const string BookSearchRoot = "/api/galleries/search?query=";
         
-        public const string TagSearchRoot = "/api/galleries/tagged?tag_id=";
+        private const string TagSearchRoot = "/api/galleries/tagged?tag_id=";
 
-        public const string PageSearchRoot = "/galleries/{0}/{1}.jpg";
+        private const string PageSearchRoot = "/galleries/{0}/{1}.jpg";
         
         public async Task<T> DownloadData<T>(string url)
         {
