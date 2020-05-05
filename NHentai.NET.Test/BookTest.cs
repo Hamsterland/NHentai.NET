@@ -88,6 +88,15 @@ namespace NHentai.Net.Test
         }
 
         [Test]
+        public async Task TestCoverResult()
+        {
+            var book = await HentaiClient.SearchBook(177013);
+            var cover = HentaiClient.GetBookCover(book);
+            
+            Assert.AreEqual(cover, "https://t.nhentai.net/galleries/987560/cover.jpg");
+        }
+
+        [Test]
         public async Task TestTagResult()
         {
             var result = await HentaiClient.SearchTag(31247);
