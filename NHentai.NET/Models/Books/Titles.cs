@@ -5,7 +5,7 @@ namespace NHentai.NET.Models
     /// <summary>
     /// Represents the title of a <see cref="Book"/>.
     /// </summary>
-    public class Title
+    public class Titles
     {
         /// <summary>
         /// The English title.

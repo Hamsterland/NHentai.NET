@@ -9,6 +9,8 @@ namespace NHentai.NET.Client
     {
         Task<T> DownloadData<T>(string url);
         Task<Book> SearchBook(int id);
+        string GetBookCover(Book book);
+        string GetBookCover(string mediaId);
         string GetBookPage(Book book, int page);
         Task<string> GetBookPage(int id, int page);
         string GetBookPage(string mediaId, int page);

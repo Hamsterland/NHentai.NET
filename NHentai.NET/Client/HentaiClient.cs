@@ -17,6 +17,8 @@ namespace NHentai.NET.Client
         public const string ApiRoot = "https://nhentai.net";
 
         public const string ImageApiRoot = "https://i.nhentai.net";
+
+        public const string CoverImageRoot = "https://t.nhentai.net/galleries/{0}/cover.{1}";
         
         public const string BookRoot = "/api/gallery/";
         
@@ -38,6 +40,23 @@ namespace NHentai.NET.Client
         {
             var url = $"{ApiRoot}{BookRoot}{id}";
             return await DownloadData<Book>(url);
+        }
+
+        public string GetBookCover(Book book)
+        {
+            return string.Format(CoverImageRoot, book.MediaId, book.Images.Cover.Type.ToString().ToLower());
+        }
+        
+        public string GetBookCover(string mediaId)
+        {
+            try
+            {
+                return string.Format(CoverImageRoot, mediaId, "jpg");
+            }
+            catch (Exception)
+            {
+                return string.Format(CoverImageRoot, mediaId, "png");
+            }
         }
 
         public string GetBookPage(Book book, int page)

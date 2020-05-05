@@ -28,7 +28,7 @@ namespace NHentai.NET.Models
         /// The titles of the book.
         /// </summary>
         [JsonPropertyName("title")]
-        public Title Title { get; set; }
+        public Titles Titles { get; set; }
         
         /// <summary>
         /// The images of the book.

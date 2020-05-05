@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using NHentai.NET.Models.Enums;
 using NUnit.Framework;
 
 namespace NHentai.Net.Test
@@ -14,13 +15,27 @@ namespace NHentai.Net.Test
 
             Assert.AreEqual(177013, result.JsonId.GetInt32());
             Assert.AreEqual("987560", result.MediaId);
-            Assert.AreEqual("[ShindoLA] METAMORPHOSIS (Complete) [English]", result.Title.English);
-            Assert.AreEqual("METAMORPHOSIS", result.Title.Pretty);
+            Assert.AreEqual("[ShindoLA] METAMORPHOSIS (Complete) [English]", result.Titles.English);
+            Assert.AreEqual("METAMORPHOSIS", result.Titles.Pretty);
             Assert.AreEqual(31, result.Tags.Count);
             Assert.AreEqual(225, result.PagesCount);
             Assert.AreEqual(24684, result.FavoritesCount);
         }
 
+        [Test]
+        public async Task TestCoverResult()
+        {
+            var book = await HentaiClient.SearchBook(177013);
+            var result = book.Images.Cover.Type;
+            Assert.AreEqual(result, FileType.Jpg);
+
+            var cover = HentaiClient.GetBookCover(book);
+            Assert.AreEqual(cover, "https://t.nhentai.net/galleries/987560/cover.jpg");
+
+            cover = HentaiClient.GetBookCover("987560");
+            Assert.AreEqual(cover, "https://t.nhentai.net/galleries/987560/cover.jpg");
+        }
+        
         [Test]
         public async Task TestRelatedResult()
         {
@@ -33,7 +48,6 @@ namespace NHentai.Net.Test
         {
             var book = await HentaiClient.SearchBook(177013);
             var result = HentaiClient.GetBookPage(book, 15);
-            
             Assert.AreEqual(result, "https://i.nhentai.net/galleries/987560/15.jpg");
         }
 

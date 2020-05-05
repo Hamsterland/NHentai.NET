@@ -1,6 +1,9 @@
-﻿﻿using System.Text.Json.Serialization;
+﻿﻿using System.IO;
+ using System.Text.Json.Serialization;
+ using NHentai.NET.Converters;
+ using NHentai.NET.Models.Enums;
 
-namespace NHentai.NET.Models
+ namespace NHentai.NET.Models
 {
     /// <summary>
     /// Represents an image page for a <see cref="Book"/>.
@@ -12,7 +15,7 @@ namespace NHentai.NET.Models
         /// The file extension of the image.
         /// </summary>
         [JsonPropertyName("t")]
-        public string Type { get; set; }
+        public FileType Type { get; set; }
         
         /// <summary>
         /// The pixel width of the image.
