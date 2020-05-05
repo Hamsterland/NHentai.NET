@@ -2,7 +2,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/hamsterland/nhentai.net/badge)](https://www.codefactor.io/repository/github/hamsterland/nhentai.net)
 
 # Introduction
-NHentai.NET is an nhentai API Wrapper written in C#. This project uses the in-built Json serializer System.Text.Json instead of Newtonsoft.Json. Therefore, it only targets .NET Core 3.0 projects and above. 
+NHentai.NET is an nhentai API Wrapper written in C#. This project uses the in-built Json serializer System.Text.Json instead of Newtonsoft.Json. Therefore, it only targets .NET Core 3.0 and .NET Standard 2.0 projects and above. 
 
 ## Examples
 ```cs
