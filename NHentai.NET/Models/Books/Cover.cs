@@ -1,6 +1,4 @@
-﻿﻿using System.Text.Json.Serialization;
-
-namespace NHentai.NET.Models
+﻿namespace NHentai.NET.Models
 {
     /// <summary>
     /// Represents a cover image for a <see cref="Book"/>.

@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text.Json;
-using NHentai.NET.Models;
 
 namespace NHentai.NET.Helpers
 {
