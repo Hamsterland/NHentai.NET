@@ -8,9 +8,9 @@
         <RepositoryUrl>https://github.com/Hamsterland/NHentai.NET/tree/master</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageLicenseUrl>https://github.com/Hamsterland/NHentai.NET/blob/master/LICENSE</PackageLicenseUrl>
-        <PackageVersion>1.0.2</PackageVersion>
+        <PackageVersion>1.1.0</PackageVersion>
         <PackageTags>nhentai, hentai, anime</PackageTags>
-        <PackageReleaseNotes>Add DI configuration method</PackageReleaseNotes>
+        <PackageReleaseNotes>Pluralise Title property to Titles. Add support for retrieving cover image.</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
