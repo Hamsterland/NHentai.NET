@@ -2,6 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>NHentai API Wrapper</Title>
+        <Description>NHentai API Wrapper for .NET</Description>
+        <RepositoryUrl>https://github.com/Hamsterland/NHentai.NET/tree/master</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
     </PropertyGroup>
 
 </Project>
