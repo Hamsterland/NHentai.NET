@@ -14,8 +14,8 @@ namespace NHentai.Net.Test
 
             Assert.AreEqual(177013, result.JsonId.GetInt32());
             Assert.AreEqual("987560", result.MediaId);
-            Assert.AreEqual("[ShindoLA] METAMORPHOSIS (Complete) [English]", result.Title.English);
-            Assert.AreEqual("METAMORPHOSIS", result.Title.Pretty);
+            Assert.AreEqual("[ShindoLA] METAMORPHOSIS (Complete) [English]", result.Titles.English);
+            Assert.AreEqual("METAMORPHOSIS", result.Titles.Pretty);
             Assert.AreEqual(31, result.Tags.Count);
             Assert.AreEqual(225, result.PagesCount);
             Assert.AreEqual(24684, result.FavoritesCount);
