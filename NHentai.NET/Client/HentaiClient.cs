@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using NHentai.NET.Models;
@@ -9,25 +10,25 @@ using NHentai.NET.Models.Searches;
 
 namespace NHentai.NET.Client
 {
-    public class HentaiClient : IHentaiClient
+    public class HentaiClient : IHentaiClient, IDisposable
     {
         private readonly HttpClient _client = new HttpClient();
         
-        private const string ApiRoot = "https://nhentai.net";
+        public const string ApiRoot = "https://nhentai.net";
 
-        private const string ImageApiRoot = "https://i.nhentai.net";
+        public const string ImageApiRoot = "https://i.nhentai.net";
 
-        private const string CoverApiRoot = "https://t.nhentai.net/galleries/{0}/cover.jpg";
+        public const string CoverImageRoot = "https://t.nhentai.net/galleries/{0}/cover.{1}";
         
-        private const string BookRoot = "/api/gallery/";
+        public const string BookRoot = "/api/gallery/";
         
-        private const string RelatedSearchRoot = "/api/gallery/{0}/related";
+        public const string RelatedSearchRoot = "/api/gallery/{0}/related";
         
-        private const string BookSearchRoot = "/api/galleries/search?query=";
+        public const string BookSearchRoot = "/api/galleries/search?query=";
         
-        private const string TagSearchRoot = "/api/galleries/tagged?tag_id=";
+        public const string TagSearchRoot = "/api/galleries/tagged?tag_id=";
 
-        private const string PageSearchRoot = "/galleries/{0}/{1}.jpg";
+        public const string PageSearchRoot = "/galleries/{0}/{1}.jpg";
         
         public async Task<T> DownloadData<T>(string url)
         {
@@ -39,6 +40,23 @@ namespace NHentai.NET.Client
         {
             var url = $"{ApiRoot}{BookRoot}{id}";
             return await DownloadData<Book>(url);
+        }
+
+        public string GetBookCover(Book book)
+        {
+            return string.Format(CoverImageRoot, book.MediaId, book.Images.Cover.Type.ToString().ToLower());
+        }
+        
+        public string GetBookCover(string mediaId)
+        {
+            try
+            {
+                return string.Format(CoverImageRoot, mediaId, "jpg");
+            }
+            catch (Exception)
+            {
+                return string.Format(CoverImageRoot, mediaId, "png");
+            }
         }
 
         public string GetBookPage(Book book, int page)
@@ -85,16 +103,6 @@ namespace NHentai.NET.Client
             }
 
             return pages;
-        }
-
-        public string GetBookCover(Book book)
-        {
-            return string.Format(CoverApiRoot, book.MediaId);
-        }
-
-        public string GetBookCover(string mediaId)
-        {
-            return string.Format(CoverApiRoot, mediaId);
         }
 
         public async Task<SearchResult> SearchRelated(int id)
