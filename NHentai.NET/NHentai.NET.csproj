@@ -7,6 +7,7 @@
         <Description>NHentai API Wrapper for .NET</Description>
         <RepositoryUrl>https://github.com/Hamsterland/NHentai.NET/tree/master</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
+        <PackageLicenseUrl>https://github.com/Hamsterland/NHentai.NET/blob/master/LICENSE</PackageLicenseUrl>
     </PropertyGroup>
 
 </Project>
