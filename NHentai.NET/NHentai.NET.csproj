@@ -4,13 +4,13 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>NHentai API Wrapper</Title>
-        <Description>NHentai API Wrapper for .NET</Description>
+        <Description>NHentai API wrapper for .NET Core 3.0+ and .NET Standard 2.0+</Description>
         <RepositoryUrl>https://github.com/Hamsterland/NHentai.NET/tree/master</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageLicenseUrl>https://github.com/Hamsterland/NHentai.NET/blob/master/LICENSE</PackageLicenseUrl>
-        <PackageVersion>1.1.0</PackageVersion>
+        <PackageVersion>1.2.1</PackageVersion>
         <PackageTags>nhentai, hentai, anime</PackageTags>
-        <PackageReleaseNotes>Pluralise Title property to Titles. Add support for retrieving cover image.</PackageReleaseNotes>
+        <PackageReleaseNotes>Support parsing and retrieving cover images and their file types</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
