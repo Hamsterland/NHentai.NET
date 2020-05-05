@@ -26,9 +26,3 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '**\*.sln'
-
-- task: NuGetCommand@2
-  inputs:
-    command: 'pack'
-    packagesToPack: '**/*.csproj'
-    versioningScheme: 'off'
