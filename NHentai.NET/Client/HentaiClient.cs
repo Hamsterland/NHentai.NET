@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using NHentai.NET.Models;
@@ -9,14 +10,13 @@ using NHentai.NET.Models.Searches;
 
 namespace NHentai.NET.Client
 {
-    /// <summary>
-    /// Implements <see cref="IHentaiClient"/>.
-    /// </summary>
     public class HentaiClient : IHentaiClient, IDisposable
     {
         private readonly HttpClient _client = new HttpClient();
         
         public const string ApiRoot = "https://nhentai.net";
+
+        public const string ImageApiRoot = "https://i.nhentai.net";
         
         public const string BookRoot = "/api/gallery/";
         
@@ -26,7 +26,7 @@ namespace NHentai.NET.Client
         
         public const string TagSearchRoot = "/api/galleries/tagged?tag_id=";
 
-        public const string PageSearchRoot = "galleries/{0}/{1}.jpg";
+        public const string PageSearchRoot = "/galleries/{0}/{1}.jpg";
         
         public async Task<T> DownloadData<T>(string url)
         {
@@ -38,6 +38,52 @@ namespace NHentai.NET.Client
         {
             var url = $"{ApiRoot}{BookRoot}{id}";
             return await DownloadData<Book>(url);
+        }
+
+        public string GetBookPage(Book book, int page)
+        {
+            if (page <= 0 || page > book.PagesCount)
+            {
+                throw new IndexOutOfRangeException("The page number you specified is outside the bounds of this book.");
+            }
+            
+            return $"{ImageApiRoot}{string.Format(PageSearchRoot, book.MediaId, page)}";
+        }
+
+        public async Task<string> GetBookPage(int id, int page)
+        {
+            var book = await SearchBook(id);
+            return $"{ImageApiRoot}{string.Format(PageSearchRoot, book.MediaId, page)}";
+        }
+
+        public string GetBookPage(string mediaId, int page)
+        {
+            return $"{ImageApiRoot}{string.Format(PageSearchRoot, mediaId, page)}";
+        }
+
+        public IEnumerable<string> GetAllBookPages(Book book)
+        {
+            var pages = new List<string>();
+
+            for (var i = 1; i < book.PagesCount + 1; i++)
+            {
+                pages.Add(GetBookPage(book, i));
+            }
+
+            return pages;
+        }
+        
+        public async Task<IEnumerable<string>> GetAllBookPages(int id)
+        {
+            var book = await SearchBook(id);
+            var pages = new List<string>();
+
+            for (var i = 1; i < book.PagesCount + 1; i++)
+            {
+                pages.Add(GetBookPage(book, i));
+            }
+
+            return pages;
         }
 
         public async Task<SearchResult> SearchRelated(int id)

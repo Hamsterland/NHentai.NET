@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using System.Threading.Tasks;
-using NHentai.NET.Helpers;
 using NUnit.Framework;
 
 namespace NHentai.Net.Test
@@ -29,6 +26,53 @@ namespace NHentai.Net.Test
         {
             var result = await HentaiClient.SearchRelated(177013);
             Assert.IsTrue(result.Books.First().JsonId.GetString() == "83932");
+        }
+
+        [Test]
+        public async Task TestSuccessfulBookPage()
+        {
+            var book = await HentaiClient.SearchBook(177013);
+            var result = HentaiClient.GetBookPage(book, 15);
+            
+            Assert.AreEqual(result, "https://i.nhentai.net/galleries/987560/15.jpg");
+        }
+
+        [Test]
+        public async Task TestUnsuccessfulBookPage()
+        {
+            try
+            {
+                var book = await HentaiClient.SearchBook(177013);
+                var result = HentaiClient.GetBookPage(book, 5000);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Assert.Pass();
+            }
+        }
+
+        [Test]
+        public async Task TestBookPageById()
+        {
+            var result = await HentaiClient.GetBookPage(177013, 15);
+            Assert.AreEqual(result, "https://i.nhentai.net/galleries/987560/15.jpg");
+        }
+        
+        [Test]
+        public void TestBookPageByMediaId()
+        {
+            var result = HentaiClient.GetBookPage("987560", 15);
+            Assert.AreEqual(result, "https://i.nhentai.net/galleries/987560/15.jpg");
+        }
+
+        [Test]
+        public async Task TestAllBookPages()
+        {
+            var book = await HentaiClient.SearchBook(177013);
+            var result = HentaiClient.GetAllBookPages(book);
+            
+            // Looking for a proper way to test this.
+            Assert.IsTrue(true);
         }
 
         [Test]
