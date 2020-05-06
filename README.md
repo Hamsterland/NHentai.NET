@@ -13,7 +13,7 @@ dotnet add package NHentai.NET --version 1.2.0
 
 ## Examples
 ```cs
-// Create a new instance of IHentaiClient.
+// Create a new client.
 var client = new IHentaiClient();
 
 // Search for a book by its Id.

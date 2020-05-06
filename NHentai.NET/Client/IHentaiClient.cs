@@ -100,15 +100,6 @@ namespace NHentai.NET.Client
         Task<IEnumerable<string>> GetAllBookPages(int id);
         
         /// <summary>
-        /// Searches for related <see cref="Book"/>s.
-        /// </summary>
-        /// <param name="id">The book Id.</param>
-        /// <returns>
-        /// A <see cref="SearchResult"/> that contains related <see cref="Book"/>s.
-        /// </returns>
-        Task<SearchResult> SearchRelated(int id);
-        
-        /// <summary>
         /// Searches for matched <see cref="Book"/>s.
         /// </summary>
         /// <param name="query">The search query.</param>
@@ -116,6 +107,15 @@ namespace NHentai.NET.Client
         /// A <see cref="SearchResult"/> that contains matched <see cref="Book"/>s.
         /// </returns>
         Task<SearchResult> SearchQuery(params string[] query);
+        
+        /// <summary>
+        /// Searches for related <see cref="Book"/>s.
+        /// </summary>
+        /// <param name="id">The book Id.</param>
+        /// <returns>
+        /// A <see cref="SearchResult"/> that contains related <see cref="Book"/>s.
+        /// </returns>
+        Task<SearchResult> SearchRelated(int id);
         
         /// <summary>
         /// Searches for matched <see cref="Book"/>s by tag Id.

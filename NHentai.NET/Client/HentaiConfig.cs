@@ -44,6 +44,5 @@
         /// The base tag search API url.
         /// </summary>
         public const string TagSearchRoot = "/api/galleries/tagged?tag_id=";
-        
     }
 }

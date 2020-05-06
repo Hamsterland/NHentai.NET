@@ -118,19 +118,19 @@ namespace NHentai.NET.Client
         #region Searches
 
         /// <inheritdoc />
-        public async Task<SearchResult> SearchRelated(int id)
-        {
-            var url = $"{HentaiConfig.ApiRoot}{string.Format(HentaiConfig.RelatedSearchRoot, id)}";
-            return await DownloadData<SearchResult>(url);
-        }
-        
-        /// <inheritdoc />
         public async Task<SearchResult> SearchQuery(params string[] query)
         {
             var url = $"{HentaiConfig.ApiRoot}{HentaiConfig.BookSearchRoot}{query.ToSearchableString()}";
             return await DownloadData<SearchResult>(url);
         }
         
+        /// <inheritdoc />
+        public async Task<SearchResult> SearchRelated(int id)
+        {
+            var url = $"{HentaiConfig.ApiRoot}{string.Format(HentaiConfig.RelatedSearchRoot, id)}";
+            return await DownloadData<SearchResult>(url);
+        }
+
         /// <inheritdoc />
         public async Task<SearchResult> SearchTag(int id)
         {
