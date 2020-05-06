@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using NHentai.NET.Models;
@@ -10,7 +9,7 @@ using NHentai.NET.Models.Searches;
 
 namespace NHentai.NET.Client
 {
-    public class HentaiClient : IHentaiClient, IDisposable
+    public class HentaiClient : IHentaiClient
     {
         private readonly HttpClient _client = new HttpClient();
         
