@@ -1,7 +1,7 @@
-﻿﻿using System.Collections.Generic;
+﻿﻿﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace NHentai.NET.Models
+namespace NHentai.NET.Models.Books
 {
     /// <summary>
     /// Represents the images in a <see cref="Book"/>.
@@ -9,19 +9,19 @@ namespace NHentai.NET.Models
     public class Images
     {
         /// <summary>
-        /// The bulk content of the images.
+        /// The book pages.
         /// </summary>
         [JsonPropertyName("pages")]
         public List<Image> Pages { get; set; }
         
         /// <summary>
-        /// The cover image of the images.
+        /// The cover image.
         /// </summary>
         [JsonPropertyName("cover")]
         public Cover Cover { get; set; }
         
         /// <summary>
-        /// The thumbnail of the images.
+        /// The thumbnail image.
         /// </summary>
         [JsonPropertyName("thumbnail")]
         public Thumbnail Thumbnail { get; set; }

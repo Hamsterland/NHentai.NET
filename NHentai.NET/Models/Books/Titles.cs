@@ -1,9 +1,9 @@
-﻿﻿using System.Text.Json.Serialization;
+﻿﻿﻿using System.Text.Json.Serialization;
 
-namespace NHentai.NET.Models
+namespace NHentai.NET.Models.Books
 {
     /// <summary>
-    /// Represents the title of a <see cref="Book"/>.
+    /// Represents the titles of a <see cref="Book"/>.
     /// </summary>
     public class Titles
     {

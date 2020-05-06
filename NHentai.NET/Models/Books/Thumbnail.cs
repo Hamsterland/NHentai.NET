@@ -1,4 +1,4 @@
-﻿namespace NHentai.NET.Models
+﻿﻿namespace NHentai.NET.Models.Books
 {
     /// <summary>
     /// Represents a thumbnail image for a <see cref="Book"/>.
