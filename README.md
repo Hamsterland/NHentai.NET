@@ -6,7 +6,7 @@
 NHentai.NET is an nhentai API Wrapper written in C#. This project uses the in-built Json serializer System.Text.Json instead of Newtonsoft.Json. Therefore, it only targets .NET Core 3.0 and .NET Standard 2.0 projects and above. 
 
 ## Installation
-You can install the latest builds from [NuGet](https://www.nuget.org/packages/NHentai.NET/1.2.0) or through the command line using the command
+You can install the latest build from [NuGet](https://www.nuget.org/packages/NHentai.NET/1.2.0) or through the .NET CLI using the command
 ```
 dotnet add package NHentai.NET --version 1.2.0
 ```
