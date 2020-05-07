@@ -14,7 +14,7 @@ namespace NHentai.Net.Test
         {
             var result = await HentaiClient.SearchBook(177013);
 
-            Assert.AreEqual(177013, result.JsonId.GetInt32());
+            Assert.AreEqual(177013, result.Id);
             Assert.AreEqual("987560", result.MediaId);
             Assert.AreEqual("[ShindoLA] METAMORPHOSIS (Complete) [English]", result.Titles.English);
             Assert.AreEqual("METAMORPHOSIS", result.Titles.Pretty);
@@ -38,7 +38,7 @@ namespace NHentai.Net.Test
         public async Task TestRelatedResult()
         {
             var result = await HentaiClient.SearchRelated(177013);
-            Assert.IsTrue(result.Books.First().JsonId.GetString() == "83932");
+            Assert.IsTrue(result.Books.First().Id == 83932);
         }
 
         [Test]

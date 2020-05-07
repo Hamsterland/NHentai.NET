@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text.Json;
 using NHentai.NET.Helpers;
@@ -32,9 +30,7 @@ namespace NHentai.NET.Client
             var url = $"{HentaiConfig.ApiRoot}{HentaiConfig.BookRoot}{id}";
             return await DownloadData<Book>(url);
         }
-
-        #region Searches
-
+        
         /// <inheritdoc />
         public async Task<SearchResult> SearchQuery(params string[] query)
         {
@@ -55,8 +51,6 @@ namespace NHentai.NET.Client
             var url = $"{HentaiConfig.ApiRoot}{HentaiConfig.TagSearchRoot}{id}";
             return await DownloadData<SearchResult>(url);
         }
-        
-        #endregion
 
         /// <summary>
         /// Disposes of an unused <see cref="HttpClient"/>.

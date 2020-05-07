@@ -1,8 +1,9 @@
 ﻿﻿using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+ using NHentai.NET.Converters;
 
-namespace NHentai.NET.Models.Books
+ namespace NHentai.NET.Models.Books
 {
     /// <summary>
     /// Represents a book.
@@ -16,7 +17,8 @@ namespace NHentai.NET.Models.Books
         /// This property should be a <see cref="JsonElement"/> by default and parsed as an integer later.
         /// </remarks>
         [JsonPropertyName("id")]
-        public JsonElement JsonId { get; set; }
+        [JsonConverter(typeof(IntegerConverter))]
+        public int Id { get; set; }
 
         /// <summary>
         /// The book media Id.
