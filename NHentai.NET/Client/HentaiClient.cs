@@ -32,58 +32,7 @@ namespace NHentai.NET.Client
             var url = $"{HentaiConfig.ApiRoot}{HentaiConfig.BookRoot}{id}";
             return await DownloadData<Book>(url);
         }
-        
-        #region Cover
 
-        /// <inheritdoc />
-        public string GetBookCover(Book book)
-        {
-            return string.Format(HentaiConfig.CoverImageRoot, book.MediaId, book.Images.Cover.Type.ToString().ToLower());
-        }
-        
-        /// <inheritdoc />
-        public string GetBookCover(string mediaId)
-        {
-            try
-            {
-                return string.Format(HentaiConfig.CoverImageRoot, mediaId, "jpg");
-            }
-            catch (Exception)
-            {
-                return string.Format(HentaiConfig.CoverImageRoot, mediaId, "png");
-            }
-        }
-
-        #endregion
-        
-        #region Page
-
-        /// <inheritdoc />
-        public string GetBookPage(Book book, int page)
-        {
-            if (page <= 0 || page > book.PagesCount)
-            {
-                throw new IndexOutOfRangeException("The page number you specified is outside the bounds of this book.");
-            }
-            
-            return $"{HentaiConfig.ImageApiRoot}{string.Format(HentaiConfig.PageSearchRoot, book.MediaId, page)}";
-        }
-
-        /// <inheritdoc />
-        public async Task<string> GetBookPage(int id, int page)
-        {
-            var book = await SearchBook(id);
-            return $"{HentaiConfig.ImageApiRoot}{string.Format(HentaiConfig.PageSearchRoot, book.MediaId, page)}";
-        }
-
-        /// <inheritdoc />
-        public string GetBookPage(string mediaId, int page)
-        {
-            return $"{HentaiConfig.ImageApiRoot}{string.Format(HentaiConfig.PageSearchRoot, mediaId, page)}";
-        }
-        
-        #endregion
-        
         #region Searches
 
         /// <inheritdoc />

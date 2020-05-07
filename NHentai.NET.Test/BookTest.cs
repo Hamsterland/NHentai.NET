@@ -30,10 +30,7 @@ namespace NHentai.Net.Test
             var result = book.Images.Cover.Type;
             Assert.AreEqual(result, FileType.Jpg);
 
-            var cover = HentaiClient.GetBookCover(book);
-            Assert.AreEqual(cover, "https://t.nhentai.net/galleries/987560/cover.jpg");
-
-            cover = HentaiClient.GetBookCover("987560");
+            var cover = book.GetCover();
             Assert.AreEqual(cover, "https://t.nhentai.net/galleries/987560/cover.jpg");
         }
         
@@ -48,7 +45,7 @@ namespace NHentai.Net.Test
         public async Task TestSuccessfulBookPage()
         {
             var book = await HentaiClient.SearchBook(177013);
-            var result = HentaiClient.GetBookPage(book, 15);
+            var result = book.GetPage(15);
             Assert.AreEqual(result, "https://i.nhentai.net/galleries/987560/15.jpg");
         }
 
@@ -58,28 +55,14 @@ namespace NHentai.Net.Test
             try
             {
                 var book = await HentaiClient.SearchBook(177013);
-                var result = HentaiClient.GetBookPage(book, 5000);
+                var result = book.GetPage(54000);
             }
             catch (IndexOutOfRangeException)
             {
                 Assert.Pass();
             }
         }
-
-        [Test]
-        public async Task TestBookPageById()
-        {
-            var result = await HentaiClient.GetBookPage(177013, 15);
-            Assert.AreEqual(result, "https://i.nhentai.net/galleries/987560/15.jpg");
-        }
         
-        [Test]
-        public void TestBookPageByMediaId()
-        {
-            var result = HentaiClient.GetBookPage("987560", 15);
-            Assert.AreEqual(result, "https://i.nhentai.net/galleries/987560/15.jpg");
-        }
-
         [Test]
         public async Task TestAllBookPages()
         {
