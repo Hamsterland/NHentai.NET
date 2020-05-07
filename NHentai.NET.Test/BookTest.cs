@@ -22,7 +22,27 @@ namespace NHentai.Net.Test
             Assert.AreEqual(225, result.PagesCount);
             Assert.AreEqual(24684, result.FavoritesCount);
         }
+        
+        [Test]
+        public async Task TestRelatedResult()
+        {
+            var result = await HentaiClient.SearchRelated(177013);
+            Assert.IsTrue(result.Books.First().Id == 83932);
+        }
 
+
+        [Test]
+        public async Task TestBooksResult()
+        {
+            var result = await HentaiClient.SearchQuery("yuri", "females only");
+
+            foreach (var book in result.Books)
+            {
+                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("yuri"));
+                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("females only"));
+            }
+        }
+        
         [Test]
         public async Task TestExcludeResult()
         {
@@ -42,20 +62,13 @@ namespace NHentai.Net.Test
         }
         
         [Test]
-        public async Task TestRelatedResult()
-        {
-            var result = await HentaiClient.SearchRelated(177013);
-            Assert.IsTrue(result.Books.First().Id == 83932);
-        }
-
-        [Test]
         public async Task TestSuccessfulBookPage()
         {
             var book = await HentaiClient.SearchBook(177013);
             var result = book.GetPage(15);
             Assert.AreEqual(result, "https://i.nhentai.net/galleries/987560/15.jpg");
         }
-
+        
         [Test]
         public async Task TestUnsuccessfulBookPage()
         {
@@ -70,28 +83,20 @@ namespace NHentai.Net.Test
             }
         }
         
+        
+        /*
+         * Looking for a proper way to implement this.
+         * 
         [Test]
         public async Task TestAllBookPages()
         {
             var book = await HentaiClient.SearchBook(177013);
             var result = book.GetPages(); 
             
-            // Looking for a proper way to test this. Need to extract a list of page URLs. 
             Assert.IsTrue(true);
         }
+        */
 
-        [Test]
-        public async Task TestBooksResult()
-        {
-            var result = await HentaiClient.SearchQuery("yuri", "females only");
-
-            foreach (var book in result.Books)
-            {
-                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("yuri"));
-                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("females only"));
-            }
-        }
-        
         [Test]
         public async Task TestTagResult()
         {
