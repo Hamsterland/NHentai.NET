@@ -24,6 +24,13 @@ namespace NHentai.Net.Test
         }
 
         [Test]
+        public async Task TestExcludeResult()
+        {
+            var result = await HentaiClient.SearchQuery("yuri", "-fingering");
+            Assert.IsTrue(result.Books.Any(x => x.Tags.Any(b => b.Name != "fingering")));
+        }
+        
+        [Test]
         public async Task TestCoverResult()
         {
             var book = await HentaiClient.SearchBook(177013);
@@ -84,8 +91,7 @@ namespace NHentai.Net.Test
                 Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("females only"));
             }
         }
-
-      
+        
         [Test]
         public async Task TestTagResult()
         {
