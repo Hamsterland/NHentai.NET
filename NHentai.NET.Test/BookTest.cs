@@ -83,9 +83,8 @@ namespace NHentai.Net.Test
             }
         }
         
-        
         /*
-         * Looking for a proper way to implement this.
+         * Looking for a proper way to implement this as a test.
          * 
         [Test]
         public async Task TestAllBookPages()

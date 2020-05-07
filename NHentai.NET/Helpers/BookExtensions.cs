@@ -11,6 +11,25 @@ namespace NHentai.NET.Helpers
     public static class BookExtensions
     {
         /// <summary>
+        /// Generates links for all pages in a <see cref="Book"/> through iteration.
+        /// </summary>
+        /// <param name="book">The book to generate pages links from.</param>
+        /// <returns>
+        /// An <see cref="IEnumerable{T}"/> of page links.
+        /// </returns>
+        public static IEnumerable<string> GetPages(this Book book)
+        {
+            var pages = new List<string>();
+            
+            for (var i = 1; i < book.PagesCount + 1; i++)
+            {
+                pages.Add(book.GetPage(i));
+            }
+            
+            return pages;
+        }
+        
+        /// <summary>
         /// Generates a link for a certain page in a <see cref="Book"/>.
         /// </summary>
         /// <param name="book">The book to generate the page from.</param>
@@ -29,25 +48,6 @@ namespace NHentai.NET.Helpers
             }
             
             return $"{HentaiConfig.ImageApiRoot}{string.Format(HentaiConfig.PageSearchRoot, book.MediaId, page)}";
-        }
-
-        /// <summary>
-        /// Generates links for all pages in a <see cref="Book"/> through iteration.
-        /// </summary>
-        /// <param name="book">The book to generate pages links from.</param>
-        /// <returns>
-        /// An <see cref="IEnumerable{T}"/> of page links.
-        /// </returns>
-        public static IEnumerable<string> GetPages(this Book book)
-        {
-            var pages = new List<string>();
-            
-            for (var i = 1; i < book.PagesCount + 1; i++)
-            {
-                pages.Add(book.GetPage(i));
-            }
-            
-            return pages;
         }
 
         /// <summary>
