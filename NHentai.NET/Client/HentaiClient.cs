@@ -84,37 +84,6 @@ namespace NHentai.NET.Client
         
         #endregion
         
-        #region AllPages
-
-        /// <inheritdoc />
-        public IEnumerable<string> GetAllBookPages(Book book)
-        {
-            var pages = new List<string>();
-
-            for (var i = 1; i < book.PagesCount + 1; i++)
-            {
-                pages.Add(GetBookPage(book, i));
-            }
-
-            return pages;
-        }
-        
-        /// <inheritdoc />
-        public async Task<IEnumerable<string>> GetAllBookPages(int id)
-        {
-            var book = await SearchBook(id);
-            var pages = new List<string>();
-
-            for (var i = 1; i < book.PagesCount + 1; i++)
-            {
-                pages.Add(GetBookPage(book, i));
-            }
-
-            return pages;
-        }
-        
-        #endregion
-        
         #region Searches
 
         /// <inheritdoc />

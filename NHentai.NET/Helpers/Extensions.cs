@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Net.Http.Headers;
 using Microsoft.Extensions.DependencyInjection;
 using NHentai.NET.Client;
+using NHentai.NET.Models.Books;
 
 namespace NHentai.NET.Helpers
 {
@@ -32,6 +34,26 @@ namespace NHentai.NET.Helpers
         public static string ToSearchableString(this IEnumerable<string> source)
         {
             return string.Join("+", source);
+        }
+
+        /// <summary>
+        /// Generates links for all images in a <see cref="Book"/> through iteration.
+        /// </summary>
+        /// <param name="book">The book to generate pages links from.</param>
+        /// <returns>
+        /// An <see cref="IEnumerable{T}"/> of page links.
+        /// </returns>
+        public static IEnumerable<string> GetPages(this Book book)
+        {
+            var client = new HentaiClient();
+            var pages = new List<string>();
+            
+            for (var i = 1; i < book.PagesCount + 1; i++)
+            {
+                pages.Add(client.GetBookPage(book, i));
+            }
+            
+            return pages;
         }
     }
 }

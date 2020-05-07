@@ -82,24 +82,6 @@ namespace NHentai.NET.Client
         string GetBookPage(string mediaId, int page);
         
         /// <summary>
-        /// Gets all <see cref="Book"/> pages.
-        /// </summary>
-        /// <param name="book">The book.</param>
-        /// <returns>
-        /// An <see cref="IEnumerable{T}"/> of image urls.
-        /// </returns>
-        IEnumerable<string> GetAllBookPages(Book book);
-        
-        /// <summary>
-        /// Gets all <see cref="Book"/> pages.
-        /// </summary>
-        /// <param name="id">The book Id.</param>
-        /// <returns>
-        /// An <see cref="IEnumerable{T}"/> of image urls.
-        /// </returns>
-        Task<IEnumerable<string>> GetAllBookPages(int id);
-        
-        /// <summary>
         /// Searches for matched <see cref="Book"/>s.
         /// </summary>
         /// <param name="query">The search query.</param>

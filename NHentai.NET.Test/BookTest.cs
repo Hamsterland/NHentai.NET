@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using NHentai.NET.Helpers;
 using NHentai.NET.Models.Enums;
 using NUnit.Framework;
 
@@ -83,7 +84,7 @@ namespace NHentai.Net.Test
         public async Task TestAllBookPages()
         {
             var book = await HentaiClient.SearchBook(177013);
-            var result = HentaiClient.GetAllBookPages(book);
+            var result = book.GetPages(); 
             
             // Looking for a proper way to test this. Need to extract a list of page URLs. 
             Assert.IsTrue(true);
