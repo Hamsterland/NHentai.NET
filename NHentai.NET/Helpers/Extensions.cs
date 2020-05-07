@@ -1,12 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Net.Http.Headers;
 using Microsoft.Extensions.DependencyInjection;
 using NHentai.NET.Client;
+using NHentai.NET.Models.Books;
 
 namespace NHentai.NET.Helpers
 {
     /// <summary>
-    /// Represents a class of static extension helper methods.
+    /// Represents a class of general extension helper methods.
     /// </summary>
+    /// <remarks>
+    /// Intended for miscellaneous use.
+    /// </remarks>
     public static class Extensions
     {
         /// <summary>

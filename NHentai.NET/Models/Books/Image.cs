@@ -10,7 +10,6 @@
     /// </summary>
     public class Image
     {
-       
         /// <summary>
         /// The image file extension.
         /// </summary>
@@ -22,8 +21,8 @@
         /// </summary>
         [JsonPropertyName("w")]
         public int Width { get; set; }
-                
-        
+
+
         /// <summary>
         /// The image pixel height.
         /// </summary>

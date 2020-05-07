@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using NHentai.NET.Models;
 using NHentai.NET.Models.Books;
-using NHentai.NET.Models.Enums;
 using NHentai.NET.Models.Searches;
 
 namespace NHentai.NET.Client
@@ -31,73 +28,6 @@ namespace NHentai.NET.Client
         /// A <see cref="Book"/> that matches the given Id. 
         /// </returns>
         Task<Book> SearchBook(int id);
-        
-        /// <summary>
-        /// Gets a <see cref="Book"/> cover image.
-        /// </summary>
-        /// <param name="book">The book.</param>
-        /// <returns>
-        /// The cover image url.
-        /// </returns>
-        string GetBookCover(Book book);
-        
-        
-        /// <summary>
-        /// Gets a book cover image.
-        /// </summary>
-        /// <param name="mediaId">The book media Id.</param>
-        /// <returns>
-        /// The cover image url.
-        /// </returns>
-        string GetBookCover(string mediaId);
-        
-        /// <summary>
-        /// Gets a <see cref="Book"/> page.
-        /// </summary>
-        /// <param name="book">The book.</param>
-        /// <param name="page">The page number.</param>
-        /// <returns>
-        /// The page image url.
-        /// </returns>
-        string GetBookPage(Book book, int page);
-        
-        /// <summary>
-        /// Gets a <see cref="Book"/> page.
-        /// </summary>
-        /// <param name="id">The book Id.</param>
-        /// <param name="page">The page number.</param>
-        /// <returns>
-        /// The page image url.
-        /// </returns>
-        Task<string> GetBookPage(int id, int page);
-        
-        /// <summary>
-        /// Gets a <see cref="Book"/> page.
-        /// </summary>
-        /// <param name="mediaId">The book media Id.</param>
-        /// <param name="page">The page number.</param>
-        /// <returns>
-        /// The page image url.
-        /// </returns>
-        string GetBookPage(string mediaId, int page);
-        
-        /// <summary>
-        /// Gets all <see cref="Book"/> pages.
-        /// </summary>
-        /// <param name="book">The book.</param>
-        /// <returns>
-        /// An <see cref="IEnumerable{T}"/> of image urls.
-        /// </returns>
-        IEnumerable<string> GetAllBookPages(Book book);
-        
-        /// <summary>
-        /// Gets all <see cref="Book"/> pages.
-        /// </summary>
-        /// <param name="id">The book Id.</param>
-        /// <returns>
-        /// An <see cref="IEnumerable{T}"/> of image urls.
-        /// </returns>
-        Task<IEnumerable<string>> GetAllBookPages(int id);
         
         /// <summary>
         /// Searches for matched <see cref="Book"/>s.
