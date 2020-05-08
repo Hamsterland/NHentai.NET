@@ -24,7 +24,7 @@ var client = new HentaiClient();
 Book book = await client.SearchBook(177013);
 
 // Get the book English title.
-string title = book.Title.English;
+string title = book.Titles.English;
 
 // Get all the book image Urls.
 List<string> images = book.GetPages();
