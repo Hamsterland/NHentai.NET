@@ -15,6 +15,7 @@ dotnet add package NHentai.NET --version 2.0.0
 ```
 
 ## Examples
+The follow code shows how you can setup and get information about books.
 ```cs
 // Create a new client.
 var client = new HentaiClient();
