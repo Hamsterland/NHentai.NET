@@ -40,15 +40,5 @@ private void ConfigureServices(IServiceCollection services)
     services.AddHentaiClient();
 }
 ```
-To inject the client, use the traditional constructor design pattern.
-```cs
-public class Example
-{
-    private readonly IHentaiClient _client;
 
-    public Example(IHentaiClient client)
-    {
-        _client = client;
-    }
-}
-```
+
