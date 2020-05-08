@@ -9,9 +9,9 @@
         <RepositoryType>GitHub</RepositoryType>
         <PackageLicenseUrl>https://github.com/Hamsterland/NHentai.NET/blob/master/LICENSE</PackageLicenseUrl>
         <Version>1.2.1</Version>
-        <PackageVersion>2.0.0</PackageVersion>
+        <PackageVersion>2.0.1</PackageVersion>
         <PackageTags>nhentai, hentai, anime</PackageTags>
-        <PackageReleaseNotes>Moderate rework of the wrapper. Many of the previous methods to retrieve information about books has moved from the main client to extensions methods for a Book object. Furthermore, the book Id is now an integer by default, no need to call .GetInt32(); </PackageReleaseNotes>
+        <PackageReleaseNotes>Quick documentation changes</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>

@@ -11,11 +11,8 @@ namespace NHentai.NET.Models.Books
     public class Book
     {
         /// <summary>
-        /// The book Json Id.
+        /// The book Id.
         /// </summary>
-        /// <remarks>
-        /// This property should be a <see cref="JsonElement"/> by default and parsed as an integer later.
-        /// </remarks>
         [JsonPropertyName("id")]
         [JsonConverter(typeof(IntegerConverter))]
         public int Id { get; set; }
