@@ -54,6 +54,7 @@ namespace NHentai.Net.Test
         public async Task TestCoverResult()
         {
             var book = await HentaiClient.SearchBook(177013);
+            
             var result = book.Images.Cover.Type;
             Assert.AreEqual(result, FileType.Jpg);
 
@@ -75,7 +76,7 @@ namespace NHentai.Net.Test
             try
             {
                 var book = await HentaiClient.SearchBook(177013);
-                var result = book.GetPage(54000);
+                book.GetPage(54000);
             }
             catch (IndexOutOfRangeException)
             {
