@@ -17,7 +17,7 @@ dotnet add package NHentai.NET --version 2.0.0
 ## Examples
 ```cs
 // Create a new client.
-var client = new IHentaiClient();
+var client = new HentaiClient();
 
 // Search for a book by its Id.
 Book book = await client.SearchBook(177013);
