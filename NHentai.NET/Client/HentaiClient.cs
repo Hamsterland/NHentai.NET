@@ -21,7 +21,7 @@ namespace NHentai.NET.Client
         public async Task<T> DownloadData<T>(string url)
         {
             var json = await _client.GetStringAsync(url);
-            return JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
+            return JsonSerializer.Deserialize<T>(json);
         }
  
         /// <inheritdoc />
