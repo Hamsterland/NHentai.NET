@@ -33,10 +33,22 @@ SearchResult result = await client.SearchQuery("yuri", "-lolicon");
 ```
 
 ## Dependency Injection
+To configure this wrapper in your container, call the `AddHentaiClient()` method on your service collection.
 ```cs
 private void ConfigureServices(IServiceCollection services)
 {
-    // Call this method on your service collection.
     services.AddHentaiClient();
+}
+```
+To inject the client, use the traditional constructor design pattern.
+```
+public class Example
+{
+    private readonly IHentaiClient _client;
+
+    public Example(IHentaiClient client)
+    {
+        _client = client;
+    }
 }
 ```
