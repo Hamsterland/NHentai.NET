@@ -3,7 +3,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/hamsterland/nhentai.net/badge)](https://www.codefactor.io/repository/github/hamsterland/nhentai.net)
 
 # Introduction
-NHentai.NET is an api wrapper written in C# for the public nhentai.net API. This wrapper makes it easy for you to search and retrieve data from nhentai without having to make precarious Http requests yourself.
+NHentai.NET is an asynchronous api wrapper written in C# for the public nhentai.net API. This wrapper makes it easy for you to search and retrieve data from nhentai without having to make precarious Http requests yourself.
 
 ## Support
 This project utilizes the System.Text.Json namespace instead of the popular alternative Newtonsoft.Json. Therefore, NHentai.NET only supports projects that target .NET Core 3.0 and .NET Standard 2.0 and above.
