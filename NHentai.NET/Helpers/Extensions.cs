@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Net.Http.Headers;
 using Microsoft.Extensions.DependencyInjection;
 using NHentai.NET.Client;
-using NHentai.NET.Models.Books;
 
 namespace NHentai.NET.Helpers
 {
