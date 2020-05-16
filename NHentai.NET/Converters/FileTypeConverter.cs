@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using NHentai.NET.Models.Books;
@@ -9,7 +9,7 @@ namespace NHentai.NET.Converters
     /// <summary>
     /// Represents a class that contains methods to convert Json elements.
     /// </summary>
-    public class FileConverter : JsonConverter<FileType>
+    public class FileTypeConverter : JsonConverter<FileType>
     {
         /// <summary>
         /// Converts the file extension of an <see cref="Image"/> from a <see cref="string"/> to a <see cref="FileType"/>
