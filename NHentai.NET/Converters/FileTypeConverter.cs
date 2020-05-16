@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using NHentai.NET.Models.Books;
@@ -27,6 +27,7 @@ namespace NHentai.NET.Converters
             {
                 "j" => FileType.Jpg,
                 "p" => FileType.Png,
+                "g" => FileType.Gif,
                 _ => throw new Exception("Could not find a valid file extension.")
             };
         }
