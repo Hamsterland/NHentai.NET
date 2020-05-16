@@ -1,4 +1,4 @@
-﻿using System;
+using System;
  using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -29,7 +29,8 @@ namespace NHentai.NET.Models.Books
         /// This property should be a <see cref="string"/> and optionally parsed as an integer later.
         /// </remarks>
         [JsonPropertyName("media_id")]
-        public string MediaId { get; set; }
+        [JsonConverter(typeof(IntegerConverter))]
+        public int MediaId { get; set; }
 
         /// <summary>
         /// The book titles.
