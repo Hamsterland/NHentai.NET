@@ -1,9 +1,9 @@
-using System;
- using System.Collections.Generic;
+﻿﻿using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
- using NHentai.NET.Client;
- using NHentai.NET.Converters;
+using NHentai.NET.Client;
+using NHentai.NET.Converters;
  
 namespace NHentai.NET.Models.Books
 {
