@@ -14,6 +14,7 @@
         /// The image file extension.
         /// </summary>
         [JsonPropertyName("t")]
+        [JsonConverter(typeof(FileTypeConverter))]
         public FileType Type { get; set; }
         
         /// <summary>

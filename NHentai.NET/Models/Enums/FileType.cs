@@ -6,7 +6,6 @@ namespace NHentai.NET.Models.Enums
     /// <summary>
     /// Represents all possible file extensions.
     /// </summary>
-    [JsonConverter(typeof(FileConverter))]
     public enum FileType
     {
         /// <summary>
@@ -17,6 +16,11 @@ namespace NHentai.NET.Models.Enums
         /// <summary>
         /// A png file type.
         /// </summary>
-        Png
+        Png,
+        
+        /// <summary>
+        /// A gif file type.
+        /// </summary>
+        Gif
     }
 }
