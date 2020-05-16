@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using NHentai.NET.Helpers;
 using NHentai.NET.Models.Enums;
 using NUnit.Framework;
 
@@ -15,7 +14,7 @@ namespace NHentai.Net.Test
             var result = await HentaiClient.SearchBook(177013);
 
             Assert.AreEqual(177013, result.Id);
-            Assert.AreEqual("987560", result.MediaId);
+            Assert.AreEqual(987560, result.MediaId);
             Assert.AreEqual("[ShindoLA] METAMORPHOSIS (Complete) [English]", result.Titles.English);
             Assert.AreEqual("METAMORPHOSIS", result.Titles.Pretty);
             Assert.AreEqual(31, result.Tags.Count);
@@ -83,18 +82,16 @@ namespace NHentai.Net.Test
             }
         }
         
+        
         /*
-         * Looking for a proper way to implement this as a test.
-         * 
         [Test]
         public async Task TestAllBookPages()
         {
             var book = await HentaiClient.SearchBook(177013);
-            var result = book.GetPages(); 
-            
-            Assert.IsTrue(true);
+            var result = book.GetPages();
         }
         */
+        
 
         [Test]
         public async Task TestTagResult()
