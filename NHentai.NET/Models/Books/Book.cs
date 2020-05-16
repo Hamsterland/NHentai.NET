@@ -76,5 +76,54 @@ namespace NHentai.NET.Models.Books
         /// </summary>
         [JsonPropertyName("num_favorites")]
         public int FavoritesCount { get; set; }
+
+        /// <summary>
+        /// Generates links for all pages in a <see cref="Book"/> through iteration.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IEnumerable{T}"/> of page links.
+        /// </returns>
+        public IEnumerable<string> GetPages()
+        {
+            var pages = new List<string>();
+            
+            for (var i = 1; i < PagesCount + 1; i++)
+            {
+                pages.Add(GetPage(i));
+            }
+            
+            return pages;
+        }
+        
+        /// <summary>
+        /// Generates a link for a certain page in a <see cref="Book"/>.
+        /// </summary>
+        /// <param name="page">The page number to retrieve.</param>
+        /// <returns>
+        /// A page link.
+        /// </returns>
+        /// <exception cref="IndexOutOfRangeException">
+        /// Thrown if the specified page number is outside the bounds of the book.
+        /// </exception>
+        public string GetPage(int page)
+        {
+            if (page <= 0 || page > PagesCount)
+            {
+                throw new IndexOutOfRangeException("The page number you specified is outside the bounds of this book.");
+            }
+            
+            return $"{HentaiConfig.ImageApiRoot}{string.Format(HentaiConfig.PageSearchRoot, MediaId, page)}";
+        }
+        
+        /// <summary>
+        /// Generates a link for the cover image of <see cref="Book"/>.
+        /// </summary>
+        /// <returns>
+        /// A cover link.
+        /// </returns>
+        public string GetCover()
+        {
+            return string.Format(HentaiConfig.CoverImageRoot, MediaId, Images.Cover.Type.ToString().ToLower());
+        }
     }
 }
