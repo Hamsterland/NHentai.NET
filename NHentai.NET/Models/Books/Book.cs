@@ -1,6 +1,5 @@
 ﻿﻿using System;
 using System.Collections.Generic;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using NHentai.NET.Client;
 using NHentai.NET.Converters;
@@ -22,9 +21,6 @@ namespace NHentai.NET.Models.Books
         /// <summary>
         /// The book media Id.
         /// </summary>
-        /// <remarks>
-        /// This property should be a <see cref="string"/> and optionally parsed as an integer later.
-        /// </remarks>
         [JsonPropertyName("media_id")]
         [JsonConverter(typeof(IntegerConverter))]
         public int MediaId { get; set; }
