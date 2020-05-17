@@ -12,14 +12,17 @@ namespace NHentai.NET.Converters
     public class FileTypeConverter : JsonConverter<FileType>
     {
         /// <summary>
-        /// Converts the file extension of an <see cref="Image"/> from a <see cref="string"/> to a <see cref="FileType"/>
-        /// enum during runtime.
+        /// Converts the file type property of an <see cref="Image"/> from a <see cref="JsonElement"/> to a
+        /// <see cref="FileType"/> during runtime.
         /// </summary>
+        /// <remarks>
+        /// The default value for this <see cref="JsonElement"/> is a <see cref="string"/>.
+        /// </remarks>
         /// <param name="reader">The Json reader.</param>
         /// <param name="typeToConvert">The default Json type to be converted.</param>
         /// <param name="options">Json serialization options.</param>
         /// <returns>
-        /// An <see cref="Image"/> file extension as a <see cref="FileType"/>.
+        /// An <see cref="Image"/> file extension parsed as <see cref="FileType"/>.
         /// </returns>
         public override FileType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {

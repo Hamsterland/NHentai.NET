@@ -50,11 +50,9 @@ namespace NHentai.NET.Models.Books
         /// <summary>
         /// The book upload date.
         /// </summary>
-        /// <remarks>
-        /// This property is currently an <see cref="int"/> when parsed. DatTime parsing to be implemented later.
-        /// </remarks>
         [JsonPropertyName("upload_date")]
-        public int UploadDate { get; set; }
+        [JsonConverter(typeof(DateTimeConverter))]
+        public DateTime UploadDate { get; set; }
 
         /// <summary>
         /// The book tags.
