@@ -13,6 +13,7 @@ You can install the latest build from [NuGet](https://www.nuget.org/packages/NHe
 ```
 dotnet add package NHentai.NET --version 2.2.0
 ```
+Please do not use the package hosted on this repo. It is outdated and GitHub won't allow users to remove public packages.
 
 ## Examples
 The following code shows how you can setup and get information about books.
