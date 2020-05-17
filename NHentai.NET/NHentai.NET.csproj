@@ -8,7 +8,6 @@
         <RepositoryUrl>https://github.com/Hamsterland/NHentai.NET</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageLicenseUrl>https://github.com/Hamsterland/NHentai.NET/blob/master/LICENSE</PackageLicenseUrl>
-        <Version>1.2.1</Version>
         <PackageVersion>2.1.0</PackageVersion>
         <PackageTags>nhentai, hentai, anime</PackageTags>
         <PackageReleaseNotes>Moderate Refactoring, Type Changes, and Code Cleaning</PackageReleaseNotes>
