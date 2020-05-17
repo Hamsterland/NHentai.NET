@@ -11,9 +11,8 @@ namespace NHentai.NET.Converters
     public class IntegerConverter : JsonConverter<int>
     {
         /// <summary>
-        /// Parses the Id property of <see cref="Book"/> from an <see cref="JsonElement"/> from it deserialized
-        /// state of an <see cref="int"/>.
-        /// <see cref="JsonElement"/> to an <see cref="int"/>.
+        /// Converts the Id property if a <see cref="Book"/> from a <see cref="JsonElement"/> to an
+        /// <see cref="int"/> during runtime.
         /// </summary>
         /// <param name="reader">The Json reader.</param>
         /// <param name="typeToConvert">The default Json type to be converted.</param>
