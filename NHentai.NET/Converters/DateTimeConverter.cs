@@ -5,6 +5,9 @@ using NHentai.NET.Models.Books;
 
 namespace NHentai.NET.Converters
 {
+    /// <summary>
+    /// Represents a class that contains methods to convert Json elements.
+    /// </summary>
     public class DateTimeConverter : JsonConverter<DateTime>
     {
         /// <summary>
