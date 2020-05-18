@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using NHentai.NET.Client;
+using NHentai.NET.Models.Searches;
 
 namespace NHentai.NET.Helpers
 {
@@ -36,6 +37,18 @@ namespace NHentai.NET.Helpers
         public static string ToSearchableString(this IEnumerable<string> source)
         {
             return string.Join("+", source);
+        }
+
+        /// <summary>
+        /// Turns a <see cref="Sort"/> enum to an API-friendly searchable <see cref="string"/>.
+        /// </summary>
+        /// <param name="sort">The chosen sort filter.</param>
+        /// <returns>
+        /// An API-searchable <see cref="string"/>.
+        /// </returns>
+        public static string ToSearchableSort(this Sort sort)
+        {
+            return sort.ToString().ToLower();
         }
     }
 }
