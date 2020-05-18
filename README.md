@@ -11,13 +11,13 @@ This project utilizes the System.Text.Json namespace instead of the popular alte
 ## Installation
 You can install the latest builds from [NuGet](https://www.nuget.org/packages/NHentai.NET/3.0.0) or GitHub [packages](https://github.com/Hamsterland/NHentai.NET/packages).
 
-### NuGet (Stable)
+### NuGet (stable)
 This source contains the latest stable builds.
 ```
 dotnet add package NHentai.NET --version 3.0.0
 ```
 ### GitHub (unstable)
-This source contains the all the latest builds. This is unstable and may not work correctly, but may sometimes be even with the Stable source. 
+This source contains the all the latest builds. This is unstable and may not work correctly, but may sometimes be even with the Stable source. This will be the case if the version numbers are the same.
 ## Examples
 The following code shows how you can setup and get information about books.
 ```cs
