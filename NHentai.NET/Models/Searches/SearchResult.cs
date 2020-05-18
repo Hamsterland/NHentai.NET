@@ -27,4 +27,20 @@ namespace NHentai.NET.Models.Searches
         [JsonPropertyName("per_page")] 
         public int PerPageCount { get; set; }
     }
+
+    /// <summary>
+    /// Represents all possible search filters.
+    /// </summary>
+    public enum Sort
+    {
+        /// <summary>
+        /// Sort by date.
+        /// </summary>
+        Date,
+        
+        /// <summary>
+        /// Sort by popularity.
+        /// </summary>
+        Popular
+    }
 }
