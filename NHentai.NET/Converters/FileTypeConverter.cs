@@ -2,7 +2,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using NHentai.NET.Models.Books;
-using NHentai.NET.Models.Enums;
 
 namespace NHentai.NET.Converters
 {
