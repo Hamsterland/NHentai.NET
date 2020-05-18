@@ -10,7 +10,7 @@
         <PackageLicenseUrl>https://github.com/Hamsterland/NHentai.NET/blob/master/LICENSE</PackageLicenseUrl>
         <PackageVersion>3.0.0</PackageVersion>
         <PackageTags>nhentai, hentai, anime</PackageTags>
-        <PackageReleaseNotes> </PackageReleaseNotes>
+        <PackageReleaseNotes>https://github.com/Hamsterland/NHentai.NET/releases/tag/3.0.0</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
