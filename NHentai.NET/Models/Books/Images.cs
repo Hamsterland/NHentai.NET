@@ -26,18 +26,4 @@ namespace NHentai.NET.Models.Books
         [JsonPropertyName("thumbnail")]
         public Thumbnail Thumbnail { get; set; }
     }
-    
-    /// <summary>
-    /// Represents a cover image for a <see cref="Book"/>.
-    /// </summary>
-    public class Cover : Image
-    {
-    }
-    
-    /// <summary>
-    /// Represents a thumbnail image for a <see cref="Book"/>.
-    /// </summary>
-    public class Thumbnail : Image
-    {
-    }
 }
