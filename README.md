@@ -9,9 +9,9 @@ NHentai.NET is an asynchronous api wrapper written in C# for the public nhentai.
 This project utilizes the System.Text.Json namespace instead of the popular alternative Newtonsoft.Json. Therefore, NHentai.NET only supports projects that target .NET Core 3.0 and .NET Standard 2.0 and above.
 
 ## Installation
-You can install the latest build from [NuGet](https://www.nuget.org/packages/NHentai.NET/2.2.0) or through the .NET CLI using the command
+You can install the latest build from [NuGet](https://www.nuget.org/packages/NHentai.NET/3.0.0) or through the .NET CLI using the command
 ```
-dotnet add package NHentai.NET --version 2.2.0
+dotnet add package NHentai.NET --version 3.0.0
 ```
 Please do not use the package hosted on this repo. It is outdated and GitHub won't allow users to remove public packages.
 
@@ -22,7 +22,7 @@ The following code shows how you can setup and get information about books.
 var client = new HentaiClient();
 
 // Search for a book by its Id.
-Book book = await client.SearchBook(177013);
+Book book = await client.SearchBookAsync(177013);
 
 // Get the book English title.
 string title = book.Titles.English;
@@ -30,8 +30,8 @@ string title = book.Titles.English;
 // Get all the book image Urls.
 List<string> images = book.GetPages();
 
-// Search for books that contain the "Yuri" tag but exclude "Lolicon".
-SearchResult result = await client.SearchQuery("yuri", "-lolicon");
+// Search for books on page 1 sorted by popular that contain the "yuri" tag but exclude "lolicon".
+SearchResult result = await client.SearchQueryAsync(1, Sort.Popular, "yuri", "-lolicon");
 ```
 
 ## Dependency Injection
