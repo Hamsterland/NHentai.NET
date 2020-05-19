@@ -8,9 +8,9 @@
         <RepositoryUrl>https://github.com/Hamsterland/NHentai.NET</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageLicenseUrl>https://github.com/Hamsterland/NHentai.NET/blob/master/LICENSE</PackageLicenseUrl>
-        <PackageVersion>3.0.0</PackageVersion>
+        <PackageVersion>3.1.0</PackageVersion>
         <PackageTags>nhentai, hentai, anime</PackageTags>
-        <PackageReleaseNotes>https://github.com/Hamsterland/NHentai.NET/releases/tag/3.0.0</PackageReleaseNotes>
+        <PackageReleaseNotes>Add Random Search</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
