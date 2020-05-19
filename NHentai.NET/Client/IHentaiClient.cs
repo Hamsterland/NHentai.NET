@@ -30,6 +30,18 @@ namespace NHentai.NET.Client
         Task<Book> SearchBookAsync(int id);
 
         /// <summary>
+        /// Searches for a <see cref="Book"/> using a random Id.
+        /// </summary>
+        /// <returns>
+        /// A random <see cref="Book"/>.
+        /// </returns>
+        /// <remarks>
+        /// This method currently does not support excluding tags. It is your responsibility to
+        /// filter out Books that contain unwanted tags on retrieval.
+        /// </remarks>
+        Task<Book> SearchRandomAsync();
+
+        /// <summary>
         /// Searches for <see cref="Book"/>s that match the given query.
         /// </summary>
         /// <param name="page">The result page number.</param>
@@ -64,7 +76,10 @@ namespace NHentai.NET.Client
         /// Retrieves the current <see cref="Book"/>s on the website home page.
         /// </summary>
         /// <param name="page"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// A <see cref="SearchResult"/> that contains <see cref="Book"/>s listed on
+        /// the home page.
+        /// </returns>
         Task<SearchResult> SearchHomePageAsync(int page);
     }
 }

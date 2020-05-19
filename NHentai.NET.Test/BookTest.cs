@@ -9,6 +9,6 @@ namespace NHentai.Net.Test
 {
     public class BookTest : BaseTest
     {
-        
+       
     }
 }
