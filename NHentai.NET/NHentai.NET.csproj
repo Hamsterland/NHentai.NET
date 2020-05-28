@@ -8,9 +8,9 @@
         <RepositoryUrl>https://github.com/Hamsterland/NHentai.NET</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageLicenseUrl>https://github.com/Hamsterland/NHentai.NET/blob/master/LICENSE</PackageLicenseUrl>
-        <PackageVersion>3.1.1</PackageVersion>
+        <PackageVersion>3.2.0</PackageVersion>
         <PackageTags>nhentai, hentai, anime</PackageTags>
-        <PackageReleaseNotes>Fix GetPages() method to adjust for file type</PackageReleaseNotes>
+        <PackageReleaseNotes>Fix not returning last page in GetPages() method</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
