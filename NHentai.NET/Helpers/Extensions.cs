@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using NHentai.NET.Client;
@@ -23,7 +24,9 @@ namespace NHentai.NET.Helpers
         /// </returns>
         public static IServiceCollection AddHentaiClient(this IServiceCollection services)
         {
-            return services.AddScoped<IHentaiClient, HentaiClient>();
+            return services
+                .AddScoped<IHentaiClient, HentaiClient>()
+                .AddScoped<Random>();
         }
         
         /// <summary>

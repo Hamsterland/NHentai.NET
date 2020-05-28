@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NHentai.NET.Models.Books;
@@ -10,88 +11,38 @@ namespace NHentai.Net.Test
     public class BookTest : BaseTest
     {
         [Test]
-        public async Task TestBookResult()
+        public async Task SearchBookAsyncTest()
         {
-            var result = await HentaiClient.SearchBookAsync(177013);
-
-            Assert.AreEqual(177013, result.Id);
-            Assert.AreEqual(987560, result.MediaId);
-            Assert.AreEqual("[ShindoLA] METAMORPHOSIS (Complete) [English]", result.Titles.English);
-            Assert.AreEqual("METAMORPHOSIS", result.Titles.Pretty);
-            Assert.AreEqual(31, result.Tags.Count);
-            Assert.AreEqual(225, result.PagesCount);
-            Assert.AreEqual(24684, result.FavoritesCount);
-        }
-        
-        [Test]
-        public async Task TestRelatedResult()
-        {
-            var result = await HentaiClient.SearchRelatedAsync(177013);
-            Assert.IsTrue(result.Books.First().Id == 83932);
-        }
-
-
-        [Test]
-        public async Task TestBooksResult()
-        {
-            var result = await HentaiClient.SearchQueryAsync(1, Sort.Date, "yuri", "females only");
-
-            foreach (var book in result.Books)
-            {
-                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("yuri"));
-                Assert.IsTrue(book.Tags.Select(x => x.Name).Contains("females only"));
-            }
-        }
-
-        [Test]
-        public async Task TestExcludeResult()
-        {
-            var result = await HentaiClient.SearchQueryAsync(1, Sort.Popular, "yuri", "-fingering");
-            Assert.IsTrue(result.Books.Any(x => x.Tags.Any(b => b.Name != "fingering")));
-        }
-        
-        [Test]
-        public async Task TestCoverResult()
-        {
-            var book = await HentaiClient.SearchBookAsync(177013);
+            var book = await HentaiClient.SearchBookAsync(125639);
+            var actual = book.GetPages().ToList();
             
-            var result = book.Images.Cover.Type;
-            Assert.AreEqual(result, FileType.Jpg);
+            var expected = new List<string>
+            {
+                "https://i.nhentai.net/galleries/779150/1.jpg",
+                "https://i.nhentai.net/galleries/779150/2.png",
+                "https://i.nhentai.net/galleries/779150/3.jpg",
+                "https://i.nhentai.net/galleries/779150/4.jpg",
+                "https://i.nhentai.net/galleries/779150/5.jpg",
+                "https://i.nhentai.net/galleries/779150/6.jpg",
+                "https://i.nhentai.net/galleries/779150/7.jpg",
+                "https://i.nhentai.net/galleries/779150/8.jpg",
+                "https://i.nhentai.net/galleries/779150/9.jpg",
+                "https://i.nhentai.net/galleries/779150/10.jpg",
+                "https://i.nhentai.net/galleries/779150/11.jpg",
+                "https://i.nhentai.net/galleries/779150/12.jpg",
+                "https://i.nhentai.net/galleries/779150/13.jpg",
+                "https://i.nhentai.net/galleries/779150/14.jpg",
+                "https://i.nhentai.net/galleries/779150/15.jpg",
+                "https://i.nhentai.net/galleries/779150/16.jpg",
+                "https://i.nhentai.net/galleries/779150/17.jpg",
+                "https://i.nhentai.net/galleries/779150/18.jpg",
+                "https://i.nhentai.net/galleries/779150/19.png",
+                "https://i.nhentai.net/galleries/779150/20.jpg"
+            };
 
-            var cover = book.GetCover();
-            Assert.AreEqual(cover, "https://t.nhentai.net/galleries/987560/cover.jpg");
-        }
-        
-        [Test]
-        public async Task TestSuccessfulBookPage()
-        {
-            var book = await HentaiClient.SearchBookAsync(177013);
-            var result = book.GetPage(15);
-            Assert.AreEqual(result, "https://i.nhentai.net/galleries/987560/15.jpg");
-        }
-        
-        [Test]
-        public async Task TestUnsuccessfulBookPage()
-        {
-            try
+            for (var i = 0; i < book.PagesCount - 1; i++)
             {
-                var book = await HentaiClient.SearchBookAsync(177013);
-                book.GetPage(54000);
-            }
-            catch (IndexOutOfRangeException)
-            {
-                Assert.Pass();
-            }
-        }
-        
-        [Test]
-        public async Task TestTagResult()
-        {
-            var result = await HentaiClient.SearchTagAsync(31247, 1, Sort.Date);
-
-            foreach (var book in result.Books)
-            {
-                Assert.IsTrue(book.Tags.Select(x => x.Id).Contains(31247));
+                Assert.AreEqual(actual[i], expected[i]);
             }
         }
     }

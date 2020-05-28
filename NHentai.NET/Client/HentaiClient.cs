@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text.Json;
 using NHentai.NET.Helpers;
@@ -16,6 +17,11 @@ namespace NHentai.NET.Client
         /// The <see cref="HttpClient"/> instance used to make GET requests.
         /// </summary>
         private readonly HttpClient _client = new HttpClient();
+        
+        /// <summary>
+        /// The <see cref="Random"/> instance used to generate a random <see cref="Book"/>.
+        /// </summary>
+        private readonly Random _random = new Random();
 
         /// <inheritdoc />
         public async Task<T> DownloadDataAsync<T>(string url)
@@ -30,8 +36,14 @@ namespace NHentai.NET.Client
             var url = $"{HentaiConfig.ApiRoot}{HentaiConfig.BookRoot}{id}";
             return await DownloadDataAsync<Book>(url);
         }
-        
-        
+
+        /// <inheritdoc />
+        public async Task<Book> SearchRandomAsync()
+        {
+            var url = $"{HentaiConfig.ApiRoot}{HentaiConfig.BookRoot}{_random.Next(1, 100000)}";
+            return await DownloadDataAsync<Book>(url);
+        }
+
         /// <inheritdoc />
         public async Task<SearchResult> SearchQueryAsync(int page, Sort sort, params string[] query)
         {
@@ -53,6 +65,7 @@ namespace NHentai.NET.Client
             return await DownloadDataAsync<SearchResult>(url);
         }
 
+        /// <inheritdoc />
         public async Task<SearchResult> SearchHomePageAsync(int page)
         {
             var url = $"{HentaiConfig.ApiRoot}{string.Format(HentaiConfig.HomePageRoot, page)}";
