@@ -78,7 +78,7 @@ namespace NHentai.NET.Models.Books
         {
             var pages = new List<string>();
             
-            for (var i = 1; i < PagesCount + 1; i++)
+            for (var i = 1; i < PagesCount; i++)
             {
                 pages.Add(GetPage(i));
             }
@@ -103,7 +103,7 @@ namespace NHentai.NET.Models.Books
                 throw new IndexOutOfRangeException("The page number you specified is outside the bounds of this book.");
             }
             
-            return $"{HentaiConfig.ImageApiRoot}{string.Format(HentaiConfig.PageSearchRoot, MediaId, page)}";
+            return $"{HentaiConfig.ImageApiRoot}{string.Format(HentaiConfig.PageSearchRoot, MediaId, page, Images.Pages[page - 1].Type.ToString().ToLower())}";
         }
         
         /// <summary>

@@ -48,6 +48,6 @@
         /// <summary>
         /// The base image page API url.
         /// </summary>
-        public const string PageSearchRoot = "/galleries/{0}/{1}.jpg";
+        public const string PageSearchRoot = "/galleries/{0}/{1}.{2}";
     }
 }

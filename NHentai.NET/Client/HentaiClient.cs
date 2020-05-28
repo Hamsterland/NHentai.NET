@@ -37,6 +37,7 @@ namespace NHentai.NET.Client
             return await DownloadDataAsync<Book>(url);
         }
 
+        /// <inheritdoc />
         public async Task<Book> SearchRandomAsync()
         {
             var url = $"{HentaiConfig.ApiRoot}{HentaiConfig.BookRoot}{_random.Next(1, 100000)}";
