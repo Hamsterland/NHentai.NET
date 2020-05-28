@@ -78,7 +78,7 @@ namespace NHentai.NET.Models.Books
         {
             var pages = new List<string>();
             
-            for (var i = 1; i < PagesCount; i++)
+            for (var i = 1; i < PagesCount + 1; i++)
             {
                 pages.Add(GetPage(i));
             }
