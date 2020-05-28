@@ -9,11 +9,15 @@ NHentai.NET is an asynchronous api wrapper written in C# for the public nhentai.
 This project utilizes the System.Text.Json namespace instead of the popular alternative Newtonsoft.Json. Therefore, NHentai.NET only supports projects that target .NET Core 3.0 and .NET Standard 2.0 and above.
 
 ## Installation
-You can install the latest build from [NuGet](https://www.nuget.org/packages/NHentai.NET/3.0.0) or through the .NET CLI using the command
+You can install the latest builds from [NuGet](https://www.nuget.org/packages/NHentai.NET/3.0.0) or GitHub [packages](https://github.com/Hamsterland/NHentai.NET/packages).
+
+### NuGet (stable)
+This source contains the latest stable builds.
 ```
 dotnet add package NHentai.NET --version 3.0.0
 ```
-
+### GitHub (unstable)
+This source contains the all the latest builds. This is unstable and may not work correctly, but may sometimes be even with the Stable source. This will be the case if the version numbers are the same.
 ## Examples
 The following code shows how you can setup and get information about books.
 ```cs
