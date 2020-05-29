@@ -11,7 +11,7 @@ namespace NHentai.Net.Test
     public class BookTest : BaseTest
     {
         [Test]
-        public async Task SearchBookAsyncTest()
+        public async Task GetPages_EnsureLinksAreCorrect()
         {
             var book = await HentaiClient.SearchBookAsync(125639);
             var actual = book.GetPages().ToList();
