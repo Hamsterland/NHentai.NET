@@ -7,7 +7,7 @@
             "**/**.csproj"
           ],
           "exclude": [
-            "**/NHentai.Net.Test.csproj"
+            "**/NHentai.NET.Test.csproj"
           ],
           "src":".."
         }
