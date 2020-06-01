@@ -5,6 +5,7 @@ using NUnit.Framework;
 
 namespace NHentai.Net.Test
 {
+    // TODO: Actually create some tests.
     [TestFixture]
     public class BookTest : BaseTest
     {
